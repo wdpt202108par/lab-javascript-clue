@@ -104,9 +104,16 @@ const weaponsArray = [
   {name: `pistol`, weight: 20}
 ];
 
+
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(i) {
+  var random = Math.floor(Math.random() * i.length);
+  return iCard=(random, i[random]);
+}
+console.log(selectRandom(suspectsArray))
+console.log(selectRandom(weaponsArray))
+console.log(selectRandom(roomsArray))
 
 function pickMystery() {}
 
