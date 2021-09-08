@@ -130,8 +130,12 @@ function pickMystery() {
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery() {
+  var finalReveal=pickMystery()
+  return `${finalReveal.suspect.firstName} ${finalReveal.suspect.lastName} killed Mr. Boddy using the ${finalReveal.weapon.name} in the ${finalReveal.room.name}!`
+};
 
+//console.log(revealMystery())
 
 
 // The following is required to make unit tests work.
