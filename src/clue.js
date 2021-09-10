@@ -166,68 +166,40 @@ const weaponsArray = [
 ];
 
 
-# Clue data
-
-Use this data to model your game cards into objects.
-
-<br>
-
-
-<br>
-
-### Rooms
-
-```
-name: Dining Room
-name: Conservatory
-name: Kitchen
-name: Study
-name: Library
-name: Billiard Room
-name: Lounge
-name: Ballroom
-name: Hall
-name: Spa
-name: Living Room
-name: Observatory
-name: Theater
-name: Guest House
-name: Patio
-```
-
-
 
 
 // ITERATION 2
 
-function selectRandom(familyCard) {
-
-  // Method Random that returns a number between 0 and Array max value
-  // Method Math Floor to secure an index applicable to the arrary
-
-  let randomIndex = Math.Floor(Math.random()*familyCard.length);
-  return familyCard[randomIndex]
+function selectRandom(cardArray) {
+  let randomIndex = Math.floor(Math.random() * cardArray.length);
+  return cardArray[randomIndex];
 }
 
-function pickMystery() {
 
-  let combinedCards = 
-  {
-    selectRandom(suspectsArray),
-    selectRandom(weaponsArray),
-    selectRandom(roomsArray),
-  },
-  return combinedCards;
+function pickMystery() {
+  let mysteryCards = {
+    suspect: selectRandom(suspectsArray),
+    weapon: selectRandom(weaponsArray),
+    room: selectRandom(roomsArray)  
+  }
+  return mysteryCards;
+}
+}
 }
 
 
 // ITERATION 3
 
-let mysteryEnveloppe=pickMystery
-function revealMystery(mysteryEnveloppe) {
-  return misteryEnveloppe[0].firstName+" "+misteryEnveloppe.lastName +" "+"killed Mr. Boddy using the "+mysteryEnveloppe[1].name + "in the" + mysteryEnveloppe[2].name +"!!!";
+// Declare a function named revealMystery that receives envelope 
+// with the shape of the object returned by pickMystery (revealmystery = pickmystery ?)
 
-};
+function revealMystery(mysteryCards) {
+  let firstName = mysteryCards.suspect.firstName;
+  let lastName = mysteryCards.suspect.lastName;
+  let weapon = mysteryCards.weapon.name;
+  let room = mysteryCards.room.name;
+  return `${firstName} ${lastName} killed Mr. Boddy using the ${weapon} in the ${room}!`;
+}
 
 
 
