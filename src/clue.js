@@ -200,14 +200,34 @@ name: Patio
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(familyCard) {
 
-function pickMystery() {}
+  // Method Random that returns a number between 0 and Array max value
+  // Method Math Floor to secure an index applicable to the arrary
+
+  let randomIndex = Math.Floor(Math.random()*familyCard.length);
+  return familyCard[randomIndex]
+}
+
+function pickMystery() {
+
+  let combinedCards = 
+  {
+    selectRandom(suspectsArray),
+    selectRandom(weaponsArray),
+    selectRandom(roomsArray),
+  },
+  return combinedCards;
+}
 
 
 // ITERATION 3
 
-function revealMystery() {}
+let mysteryEnveloppe=pickMystery
+function revealMystery(mysteryEnveloppe) {
+  return misteryEnveloppe[0].firstName+" "+misteryEnveloppe.lastName +" "+"killed Mr. Boddy using the "+mysteryEnveloppe[1].name + "in the" + mysteryEnveloppe[2].name +"!!!";
+
+};
 
 
 
