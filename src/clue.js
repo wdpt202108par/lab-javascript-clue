@@ -59,21 +59,21 @@ const suspectsArray = [
 
 // Rooms Array
 const roomsArray = [
-	'Dining Room',
-  'Conservatory',
-  'Kitchen',
-  'Study',
-  'Library',
-  'Billiard Room',
-  'Lounge',
-  'Ballroom',
-  'Hall',
-  'Spa',
-  'Living Room',
-  'Observatory',
-  'Theater',
-  'Guest House',
-  'Patio',
+	{ name: 'Dining Room'},
+  { name: 'Conservatory'},
+  { name: 'Kitchen'},
+  { name: 'Study'},
+  { name: 'Library'},
+  { name: 'Billiard Room'},
+  { name: 'Lounge'},
+  { name: 'Ballroom'},
+  { name: 'Hall'},
+  { name: 'Spa'},
+  { name: 'Living Room'},
+  { name: 'Observatory'},
+  { name: 'Theater'},
+  { name: 'Guest House'},
+  { name: 'Patio'},
 ];
 
 // Weapons Array
@@ -117,17 +117,28 @@ const weaponsArray = [
 ]
 
 // ITERATION 2
+//Random selector
+function selectRandom(arr) {
+  let indexSelectCard = Math.trunc(Math.random() * arr.length); 
+    return arr[indexSelectCard]; 
+}
 
-function selectRandom() {}
-
-function pickMystery() {}
-
+//Create the mystery
+function pickMystery () { 
+  var suspectCard = selectRandom(suspectsArray);
+  var weaponCard = selectRandom(weaponsArray);
+  var roomCard = selectRandom(roomsArray); 
+  return {
+    suspect:suspectCard,
+    weapon:weaponCard,
+    room:roomCard
+  };
+}
 
 // ITERATION 3
-
-function revealMystery() {}
-
-
+function revealMystery(envelope) { //envelope = pickMystery()
+  return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
