@@ -174,8 +174,9 @@ const suspectsArray = [
   
     // Method Random that returns a number between 0 and Array max value
     // Method Math Floor to secure an index applicable to the arrary
-  
-    let randomIndex = Math.Floor(Math.random()*familyCard.length);
+    
+    //Comment Hassan: it's Math.floor not math.Floor -> 'f' in floor is not in capital.
+    let randomIndex = Math.floor(Math.random() * familyCard.length);
     return familyCard[randomIndex];
   }
   
@@ -185,9 +186,11 @@ const suspectsArray = [
     let trioCards = {
   
     // For each category, select card randomly and return within an object
+      //Comment Hassan: selecting one weapon not multiple so weapon property should be 
+      // weapon not weapon's' -> same thing with rooms.
       suspect: selectRandom(suspectsArray),
-      weapons: selectRandom(weaponsArray),
-      rooms: selectRandom(roomsArray)
+      weapon: selectRandom(weaponsArray),
+      room: selectRandom(roomsArray)
     }
     return trioCards;
   }
@@ -198,13 +201,18 @@ const suspectsArray = [
   // Declare a function named revealMystery that receives envelope 
   // with the shape of the object returned by pickMystery (revealmystery = pickmystery ?)
   
-  let enveloppe=pickMystery;
+  //Comment Hassan: when you called the function pickMystery, you forgot to add the () at the end.
+
+  //let enveloppe=pickMystery;
   function revealMystery(enveloppe) {
-    return enveloppe.suspects.firstName+" "+enveloppe.suspects.lastName+" killed Mr. Boddy using the "+enveloppe.weapons.name + "in the" + enveloppe.rooms.name +"!!!";
+    //Comment Hassan: corrected the properties names when getting the value of the sub-object, you put suspects with an 's' at the end when in fact it is without an 's' 
+    //as declared above, same thing for weapon's' room's' etc...
+    //Comment Hassan: added some spaces before and after <enveloppe.weapon.name> also at the end it's '!' and not '!!!' -> test suit is sensitive about that :p
+    return enveloppe.suspect.firstName+" "+enveloppe.suspect.lastName+" killed Mr. Boddy using the "+enveloppe.weapon.name + " in the " + enveloppe.room.name +"!";
   
   };
   
-  console.log (revealMystery(pickMystery));
+  //console.log (revealMystery(pickMystery));
   
   
   

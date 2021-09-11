@@ -184,8 +184,8 @@ function pickMystery() {
   }
   return mysteryCards;
 }
-}
-}
+
+
 
 
 // ITERATION 3
