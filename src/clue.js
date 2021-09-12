@@ -114,12 +114,21 @@ function selectRandom(monArray) {
   return valeurChoisie;
 }
 
+//Declare a function named `pickMystery` that takes no arguments 
 function pickMystery() {
-  let 
+
+//déclarer des variables qui contiennent chacune une random card, déterminée en réutilisant la fonction précédente 'selectRandom'
+  let Suspect = selectRandom(suspectsArray);
+  let Weapon = selectRandom(weaponsArray);
+  let Room = selectRandom(roomsArray);
+//and returns an object with three properties: _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type.
+  return {
+    Suspect, 
+    Weapon,
+    Room}
 }
-//Declare a function named `pickMystery` that takes no arguments and returns an object 
-//with three properties: _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type. 
-//You can get a random card of each type by calling `selectRandom` on each card stack.
+//Pour tester dans CodePen : console.log(pickMystery());
+//Il y a peut-être plus simple mais cette méthode est efficace :)
 
 // ITERATION 3
 
