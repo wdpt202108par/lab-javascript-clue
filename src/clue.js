@@ -116,24 +116,29 @@ function selectRandom(monArray) {
 
 //Declare a function named `pickMystery` that takes no arguments 
 function pickMystery() {
-
 //déclarer des variables qui contiennent chacune une random card, déterminée en réutilisant la fonction précédente 'selectRandom'
-  let Suspect = selectRandom(suspectsArray);
-  let Weapon = selectRandom(weaponsArray);
-  let Room = selectRandom(roomsArray);
+  let suspect = selectRandom(suspectsArray);
+  let weapon = selectRandom(weaponsArray);
+  let room = selectRandom(roomsArray);
 //and returns an object with three properties: _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type.
   return {
-    Suspect, 
-    Weapon,
-    Room}
+    suspect, 
+    weapon,
+    room
+  }
 }
 //Pour tester dans CodePen : console.log(pickMystery());
 //Il y a peut-être plus simple mais cette méthode est efficace :)
 
 // ITERATION 3
 
-function revealMystery() {}
-
+//Declare a function named `revealMystery` that receives an _envelope_ `object` (with the shape of the object returned by `pickMystery`) as the single argument
+function revealMystery(envelope) {
+//appeler fonction précédente
+  pickMystery();
+//returns a reveal message in the following format: **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
+  return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
+}
 
 
 // The following is required to make unit tests work.
